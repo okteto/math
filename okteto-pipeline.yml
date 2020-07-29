@@ -1,0 +1,5 @@
+icon: https://github.com/okteto/math/raw/master/logo.png
+deploy:
+  - kubectl apply -f manifests
+devs:
+  - okteto.yml

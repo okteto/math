@@ -1,4 +1,4 @@
-# Getting Started with Okteto and a Django + Celery Sample App
+# Django + Celery on Okteto Demo
 
 [![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/okteto/math)
 

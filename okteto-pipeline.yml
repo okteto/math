@@ -1,4 +1,4 @@
-icon: https://github.com/okteto/math/raw/master/icon.png
+icon: https://github.com/okteto/math/raw/feature/new-api/icon.svg
 deploy:
   - kubectl apply -f manifests
 devs:

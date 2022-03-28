@@ -13,7 +13,7 @@ db:
     cpu: "250m"
   user: postgres
   pass: postgres
-  db: postgres
+  name: postgres
 queue:
   replicaCount: 1
   limit:

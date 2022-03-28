@@ -18,9 +18,9 @@ spec:
         image: rabbitmq:3.6.0
         env:
         - name: RABBITMQ_DEFAULT_USER
-          value: admin
+          value: {{ .Values.queue.user }}
         - name: RABBITMQ_DEFAULT_PASS
-          value: mypass
+          value: {{ .Values.queue.pass }}
         resources:
           limits:
             memory: {{ .Values.queue.limit.memory }}

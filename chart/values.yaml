@@ -19,6 +19,8 @@ queue:
   limit:
     memory: "200Mi"
     cpu: "100m"
+  user: admin
+  pass: mypass
 web:
   replicaCount: 1
   limit:

@@ -18,9 +18,9 @@ spec:
         image: redis
         resources:
           limits:
-            memory: "100Mi"
-            cpu: "50m"
-        
+            memory: {{ .Values.cache.limit.memory }}
+            cpu: {{ .Values.cache.limit.cpu }}
+
 
 ---
 
@@ -29,7 +29,7 @@ kind: Service
 metadata:
   name: cache
 spec:
-  type: ClusterIP  
+  type: ClusterIP
   ports:
   - name: cache
     port: 6379

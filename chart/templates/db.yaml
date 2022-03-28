@@ -18,18 +18,18 @@ spec:
         image: postgres:9.4
         env:
         - name: POSTGRES_USER
-          value: postgres
+          value: {{ .Values.db.user }}
         - name: POSTGRES_PASSWORD
-          value: postgres
+          value: {{ .Values.db.pass }}
         - name: POSTGRES_DB
-          value: postgres
+          value: {{ .Values.db.db }}
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "250m"
+            memory: {{ .Values.db.request.memory }}
+            cpu: {{ .Values.db.request.cpu }}
           limits:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: {{ .Values.db.limit.memory }}
+            cpu: {{ .Values.db.limit.cpu }}
 ---
 
 apiVersion: v1
@@ -37,7 +37,7 @@ kind: Service
 metadata:
   name: db
 spec:
-  type: ClusterIP  
+  type: ClusterIP
   ports:
   - name: db
     port: 5432

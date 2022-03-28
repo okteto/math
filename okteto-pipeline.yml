@@ -1,4 +1,4 @@
-icon: https://ricklucas.net/wp-content/uploads/2021/08/Unicorn.svg
+icon: https://github.com/okteto/math/raw/master/icon.png
 deploy:
   - kubectl apply -f manifests
 devs:

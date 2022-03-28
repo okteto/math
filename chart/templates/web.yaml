@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 1
+  replicas: {{ .Values.web.replicaCount }}
   selector:
     matchLabels:
       app: web
@@ -19,8 +19,8 @@ spec:
         command: ["./run_web.sh"]
         resources:
           limits:
-            memory: "512Mi"
-            cpu: "500m"        
+            memory: {{ .Values.web.limit.memory }}
+            cpu: {{ .Values.web.limit.cpu }}
 
 ---
 
@@ -31,7 +31,7 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: ClusterIP  
+  type: ClusterIP
   ports:
   - name: web
     port: 8080

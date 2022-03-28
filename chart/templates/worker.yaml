@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: worker
 spec:
-  replicas: 1
+  replicas: {{ .Values.worker.replicaCount }}
   selector:
     matchLabels:
       app: worker
@@ -19,6 +19,5 @@ spec:
         command: ["./run_celery.sh"]
         resources:
           limits:
-            memory: "512Mi"
-            cpu: "500m"
-        
+            memory: {{ .Values.worker.limit.memory }}
+            cpu: {{ .Values.worker.limit.cpu }}

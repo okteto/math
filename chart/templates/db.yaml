@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: db
 spec:
-  replicas: 1
+  replicas: {{ .Values.db.replicaCount }}
   selector:
     matchLabels:
       app: db

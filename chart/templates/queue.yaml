@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: queue
-        image: rabbitmq:3.6.0
+        image: {{ .Values.queue.image }}
         env:
         - name: RABBITMQ_DEFAULT_USER
           value: {{ .Values.queue.user }}
@@ -37,5 +37,7 @@ spec:
   ports:
   - name: queue
     port: 5672
+  - name: admin
+    port: 15672
   selector:
     app: queue

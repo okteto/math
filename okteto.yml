@@ -1,11 +1,10 @@
-name: web
-command: ["sh", "-c", "./run_web.sh"]
+name: hello-world
+command: bash
 sync:
-  - .:/app
-services:
-  - name: worker
-    command: ["sh", "-c", "./run_celery.sh"]
-    sync:
-      - .:/app
+- .:/usr/src/app
 forward:
-  - 8080:8080
+- 8080:8080
+reverse:
+- 9000:9000
+volumes:
+- /root/.cache/pip

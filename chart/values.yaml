@@ -1,9 +1,11 @@
 cache:
+  image: redis:2.8.19
   replicaCount: 1
   limit:
     memory: "100Mi"
     cpu: "50m"
 db:
+  image: postgres:9.4
   replicaCount: 1
   request:
     memory: "64Mi"
@@ -15,6 +17,7 @@ db:
   pass: postgres
   name: postgres
 queue:
+  image: rabbitmq:3.6.0
   replicaCount: 1
   limit:
     memory: "200Mi"
@@ -22,11 +25,13 @@ queue:
   user: admin
   pass: mypass
 web:
+  image: okteto/django:latest
   replicaCount: 1
   limit:
     memory: "512Mi"
     cpu: "500m"
 worker:
+  image: okteto/django:latest
   replicaCount: 1
   limit:
     memory: "512Mi"

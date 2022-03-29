@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 0
       containers:
       - name: web
-        image: okteto/django:latest
+        image: {{ .Values.web.image }}
         command: ["./run_web.sh"]
         resources:
           limits:

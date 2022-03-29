@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cache
-        image: redis
+        image: {{ .Values.cache.image }}
         resources:
           limits:
             memory: {{ .Values.cache.limit.memory }}

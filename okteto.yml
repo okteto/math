@@ -1,10 +1,26 @@
-name: hello-world
-command: bash
-sync:
-- .:/usr/src/app
-forward:
-- 8080:8080
-reverse:
-- 9000:9000
-volumes:
-- /root/.cache/pip
+icon: https://apps.okteto.com/movies/icon.png
+
+build:
+  web:
+    context: .
+  worker:
+    context: .
+
+deploy:
+  - kubectl apply -f k8s.yml
+
+dev:
+
+  web:
+    command: ["sh", "-c", "./run_web.sh"]
+    forward:
+      - 8080:8080
+    sync:
+      - .:/usr/src/app
+    reverse:
+      - 9000:9000
+
+  worker:
+    command: ["sh", "-c", "./run_celery.sh"]
+    sync:
+      - .:/usr/src/app

@@ -1,9 +1,7 @@
 icon: https://apps.okteto.com/movies/icon.png
 
 build:
-  web:
-    context: .
-  worker:
+  math:
     context: .
 
 deploy:

@@ -7,16 +7,16 @@ build:
     context: .
 
 deploy:
-  - kubectl apply -f k8s.yml
+  - helm upgrade --install math chart --set web.image=${OKTETO_BUILD_WEB_IMAGE} --set worker.image=${OKTETO_BUILD_WORKER_IMAGE}
 
 dev:
 
   web:
     command: ["sh", "-c", "./run_web.sh"]
-    forward:
-      - 8080:8080
     sync:
       - .:/usr/src/app
+    forward:
+      - 8080:8080
     reverse:
       - 9000:9000
 

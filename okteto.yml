@@ -7,7 +7,7 @@ build:
     context: .
 
 deploy:
-  - helm upgrade --install math chart --set web.image=${OKTETO_BUILD_WEB_IMAGE} --set worker.image=${OKTETO_BUILD_WORKER_IMAGE}
+  - helm upgrade --install math chart --set web.image=${OKTETO_BUILD_MATH_IMAGE} --set worker.image=${OKTETO_BUILD_MATH_IMAGE}
 
 dev:
 

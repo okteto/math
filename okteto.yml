@@ -13,3 +13,7 @@ dev:
         command: ["sh", "-c", "./run_celery.sh"]
         sync:
           - .:/app
+    persistentVolume:
+      enabled: true    
+    forward:
+      - 8080:8080

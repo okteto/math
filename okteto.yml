@@ -12,4 +12,6 @@ dev:
       - name: worker
         command: ["sh", "-c", "./run_celery.sh"]
         sync:
-          - .:/app
+          - .:/app    
+    forward:
+      - 8080:8080

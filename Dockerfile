@@ -1,5 +1,4 @@
-# use base python image with python 2.7
-FROM python:2.7
+FROM python:3.9
 
 ENV PYTHONUNBUFFERED true 
 

@@ -10,4 +10,4 @@ done
 cd myproject
 
 # run Celery worker for our project myproject with Celery configuration stored in Celeryconf
-celery -A worker myproject.celeryconf -Q default -n default@%h
+celery -A myproject worker -l INFO -Q default -n default@%h

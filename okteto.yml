@@ -1,7 +1,7 @@
 icon: https://github.com/okteto/math/raw/master/icon.png
 
 deploy:
-  - kubectl apply -f manifests
+  compose: docker-compose.yml
 
 dev:
   web:

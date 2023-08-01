@@ -1,7 +1,6 @@
 version: '3.4'
 services:
   web:
-    image: okteto/django:latest
     build: .
     command: ./run_web.sh
     volumes:
@@ -10,15 +9,13 @@ services:
       - "8080:8080"
 
   worker:
-    image: okteto/django:latest
     build: .
     command: ./run_celery.sh
     volumes:
       - .:/app
 
   db:
-    image: postgres:9.4
-    hostname: db
+    image: postgres:15-alpine3.17
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -27,12 +24,10 @@ services:
       - "5432:5432"
 
   cache:
-    image: redis:2.8.19
-    hostname: cache
+    image: redis:6-alpine
 
   queue:
-    image: rabbitmq:3.6.0
-    hostname: queue
+    image: rabbitmq:3-alpine
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=mypass

@@ -1,7 +1,5 @@
 # Django + Celery on Okteto Demo
 
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/okteto/math)
-
 ## Prerequisites
 
 - Okteto CLI >= 1.8.17. Follow this [guide](/docs/getting-started/installation) to upgrade to the latest version.

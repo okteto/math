@@ -1,7 +1,16 @@
 icon: https://github.com/okteto/math/raw/master/icon.png
 
+build:
+  web:
+    context: .
+    dockerfile: Dockerfile
+  worker:
+    context: .
+    dockerfile: Dockerfile
+
 deploy:
-   - kubectl apply -f manifests
+  compose:
+    file: docker-compose.yml
 
 dev:
   web:
@@ -12,6 +21,6 @@ dev:
       - name: worker
         command: ["sh", "-c", "./run_celery.sh"]
         sync:
-          - .:/app    
+          - .:/app
     forward:
       - 8080:8080

@@ -1,0 +1,8 @@
+// ignore everything
+**
+
+!myproject
+!LICENSE
+!requirements.txt
+!run_celery.sh
+!run_web.sh

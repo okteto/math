@@ -1,6 +1,6 @@
 FROM python:3.9
 
-ENV PYTHONUNBUFFERED true 
+ENV PYTHONUNBUFFERED true
 
 # set working directory to /app/
 WORKDIR /app/
@@ -12,6 +12,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # copy code base to the image
-COPY . .
+COPY run_celery.sh run_web.sh ./
+COPY myproject myproject
 
 CMD ["./run_web.sh"]

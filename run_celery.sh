@@ -7,7 +7,16 @@ do
     sleep 1
 done
 
-cd myproject
+# wait until file .syncthing-completed exists
+while [ ! -f .syncthing-completed ]
+do
+    echo "Waiting for syncthing to complete..."
+    sleep 1
+done
+
+echo "SYNCTHING_COMPLETED_TIME: $(cat .syncthing-completed)"
+
+cd myproject || exit 1
 
 # run Celery worker for our project myproject with Celery configuration stored in Celeryconf
 celery -A myproject worker -l INFO -Q default -n default@%h

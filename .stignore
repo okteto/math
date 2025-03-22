@@ -1,8 +1,8 @@
-.git
+// ignore everything
+**
 
-__pycache__
-
-.env
-.venv
-env
-venv
+// only sync these files
+myproject
+test_files
+run_celery.sh
+run_web.sh

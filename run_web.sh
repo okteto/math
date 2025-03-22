@@ -7,6 +7,13 @@ do
     sleep 1
 done
 
+
+SYNCTHING_COMPLETED_TIME=$(date)
+echo "$SYNCTHING_COMPLETED_TIME" > .syncthing-completed
+echo "File synchronization completed"
+
+ls -l test_files
+
 echo "Database is ready"
 cd myproject
 

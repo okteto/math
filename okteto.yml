@@ -17,10 +17,14 @@ dev:
     command: ["sh", "-c", "./run_web.sh"]
     sync:
       - .:/app
+    environment:
+        - WAIT_FOR_FILE_SYNC=true
     services:
       - name: worker
         command: ["sh", "-c", "./run_celery.sh"]
         sync:
           - .:/app
+        environment:
+        - WAIT_FOR_FILE_SYNC=true
     forward:
       - 8080:8080

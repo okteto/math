@@ -2,7 +2,7 @@
 **
 
 // only sync these files
-myproject
-test_files
-run_celery.sh
-run_web.sh
+!myproject
+!test_files
+!run_celery.sh
+!run_web.sh

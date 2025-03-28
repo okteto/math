@@ -7,12 +7,13 @@ do
     sleep 1
 done
 
-# wait until file .syncthing-completed exists
+if [ "$WAIT_FOR_FILE_SYNC" = "true" ]; then
 while [ ! -f .syncthing-completed ]
 do
     echo "Waiting for syncthing to complete..."
     sleep 1
 done
+fi
 
 echo "SYNCTHING_COMPLETED_TIME: $(cat .syncthing-completed)"
 

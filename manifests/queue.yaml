@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: queue
-        image: rabbitmq:3.6.0
+        image: rabbitmq:4.0-alpine
         env:
         - name: RABBITMQ_DEFAULT_USER
           value: admin

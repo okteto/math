@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 0
       containers:
       - name: worker
-        image: okteto/django:latest
+        image: ${OKTETO_BUILD_APP_IMAGE}
         command: ["./run_celery.sh"]
         resources:
           limits:

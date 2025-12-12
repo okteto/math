@@ -1,7 +1,23 @@
 icon: https://github.com/okteto/math/raw/master/icon.png
 
+build:
+  app:
+    context: .
+    dockerfile: Dockerfile
+
 deploy:
-   - kubectl apply -f manifests
+   - envsubst < manifests/cache.yaml | kubectl apply -f -
+   - envsubst < manifests/db.yaml | kubectl apply -f -
+   - envsubst < manifests/queue.yaml | kubectl apply -f -
+   - envsubst < manifests/web.yaml | kubectl apply -f -
+   - envsubst < manifests/worker.yaml | kubectl apply -f -
+
+test:
+  api-integration:
+    image: ${OKTETO_BUILD_APP_IMAGE}
+    commands:
+      - pip install -r requirements.txt
+      - pytest -v --tb=short --color=yes
 
 dev:
   web:
